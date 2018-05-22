@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/jbong0/friendfinder/issues"
   },
-  "homepage": "https://github.com/jbong0/friendfinder#readme"
+  "homepage": "https://github.com/jbong0/friendfinder#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "path": "^0.12.7"
+  }
 }
