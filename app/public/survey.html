@@ -13,131 +13,150 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- jQuery -->
+    <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
-        <div class="jumbotron jumbotron-fluid mb-0">
+        <div class="jumbotron jumbotron-fluid p-4 bg-white">
             <h1 class="display-4"><i class="fas fa-utensils"></i> Foodie Friend Finder: Survey </h1>
             <hr>
         </div>
+        
+        <div id="info" class="mb-4">
+            <h3>About You:</h3>
+            <div class="input-group mb-1">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> Name : </span>
+                    </div>
+                    <input type="text" id="name" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" value="John Smith">
+            </div>
+            <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Photo URL : </span>
+                    </div>
+                    <input type="text" id="photo" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
+        </div>
+        <hr>
+        <div id="survey" class="mt-4">
+            <h3>Question 1</h3>
+            <p>Pineapples belong on pizza.</p>
+            <select id="q1">
+                <option value="1">Choose one</option>
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
 
-    <div id="survey">
-        <h3>Question 1</h3>
-        <p>Your mind is always buzzing with unexplored ideas and plans</p>
-        <select class="">
-            <option selected disabled>Choose one</option>
-            <option name="ans1" value="1">1</option>
-            <option name="ans2" value="2">2</option>
-            <option name="ans3" value="3">3</option>
-            <option name="ans4" value="3">4</option>
-            <option name="ans5" value="3">5</option>
-        </select>
+            <h3 class="mt-4">Question 2</h3>
+            <p>Sugar does not belong in spaghetti sauce.</p>
+            <select id="q2">
+                <option value="1">Choose one</option>
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
 
-        <h3 class="mt-4">Question 2</h3>
-        <p>Your mind is always buzzing with unexplored ideas and plans</p>
-        <select class="">
-            <option selected disabled>Choose one</option>
-            <option name="ans1" value="1">1</option>
-            <option name="ans2" value="2">2</option>
-            <option name="ans3" value="3">3</option>
-            <option name="ans4" value="3">4</option>
-            <option name="ans5" value="3">5</option>
-        </select>
+            <h3 class="mt-4">Question 3</h3>
+            <p>Crepes should be savory.</p>
+            <select id="q3">
+                <option value="1">Choose one</option>
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
 
-        <h3 class="mt-4">Question 3</h3>
-        <p>Your mind is always buzzing with unexplored ideas and plans</p>
-        <select class="">
-            <option selected disabled>Choose one</option>
-            <option name="ans1" value="1">1</option>
-            <option name="ans2" value="2">2</option>
-            <option name="ans3" value="3">3</option>
-            <option name="ans4" value="3">4</option>
-            <option name="ans5" value="3">5</option>
-        </select>
+            <h3 class="mt-4">Question 4</h3>
+            <p>Scrambled eggs are better than sunny side up eggs.</p>
+            <select id="q4">
+                <option value="1">Choose one</option>
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
 
-        <h3 class="mt-4">Question 4</h3>
-        <p>Your mind is always buzzing with unexplored ideas and plans</p>
-        <select class="">
-            <option selected disabled>Choose one</option>
-            <option name="ans1" value="1">1</option>
-            <option name="ans2" value="2">2</option>
-            <option name="ans3" value="3">3</option>
-            <option name="ans4" value="3">4</option>
-            <option name="ans5" value="3">5</option>
-        </select>
+            <h3 class="mt-4">Question 5</h3>
+            <p>Fish are friends not food.</p>
+            <select id="q5">
+                <option value="1">Choose one</option>               
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
 
-        <h3 class="mt-4">Question 5</h3>
-        <p>Your mind is always buzzing with unexplored ideas and plans</p>
-        <select class="">
-            <option selected disabled>Choose one</option>
-            <option name="ans1" value="1">1</option>
-            <option name="ans2" value="2">2</option>
-            <option name="ans3" value="3">3</option>
-            <option name="ans4" value="3">4</option>
-            <option name="ans5" value="3">5</option>
-        </select>
+            <h3 class="mt-4">Question 6</h3>
+            <p>Fried chicken is the best way to prepare chicken.</p>
+            <select id="q6">
+                <option value="1">Choose one</option>               
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
 
-        <h3 class="mt-4">Question 6</h3>
-        <p>Your mind is always buzzing with unexplored ideas and plans</p>
-        <select class="">
-            <option selected disabled>Choose one</option>
-            <option name="ans1" value="1">1</option>
-            <option name="ans2" value="2">2</option>
-            <option name="ans3" value="3">3</option>
-            <option name="ans4" value="3">4</option>
-            <option name="ans5" value="3">5</option>
-        </select>
+            <h3 class="mt-4">Question 7</h3>
+            <p>Entrees are better with sides.</p>
+            <select id="q7">
+                <option value="1">Choose one</option>               
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
 
-        <h3 class="mt-4">Question 7</h3>
-        <p>Your mind is always buzzing with unexplored ideas and plans</p>
-        <select class="">
-            <option selected disabled>Choose one</option>
-            <option name="ans1" value="1">1</option>
-            <option name="ans2" value="2">2</option>
-            <option name="ans3" value="3">3</option>
-            <option name="ans4" value="3">4</option>
-            <option name="ans5" value="3">5</option>
-        </select>
+            <h3 class="mt-4">Question 8</h3>
+            <p>Sour candy is better than sweet candy. </p>
+            <select id="q8">
+                <option value="1">Choose one</option>               
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
 
-        <h3 class="mt-4">Question 8</h3>
-        <p>Your mind is always buzzing with unexplored ideas and plans</p>
-        <select class="">
-            <option selected disabled>Choose one</option>
-            <option name="ans1" value="1">1</option>
-            <option name="ans2" value="2">2</option>
-            <option name="ans3" value="3">3</option>
-            <option name="ans4" value="3">4</option>
-            <option name="ans5" value="3">5</option>
-        </select>
+            <h3 class="mt-4">Question 9</h3>
+            <p>Extra cheese please.</p>
+            <select id="q9">
+                <option value="1">Choose one</option>               
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
 
-        <h3 class="mt-4">Question 9</h3>
-        <p>Your mind is always buzzing with unexplored ideas and plans</p>
-        <select class="">
-            <option selected disabled>Choose one</option>
-            <option name="ans1" value="1">1</option>
-            <option name="ans2" value="2">2</option>
-            <option name="ans3" value="3">3</option>
-            <option name="ans4" value="3">4</option>
-            <option name="ans5" value="3">5</option>
-        </select>
-
-        <h3 class="mt-4">Question 10</h3>
-        <p>Your mind is always buzzing with unexplored ideas and plans</p>
-        <select class="">
-            <option selected disabled>Choose one</option>
-            <option name="ans1" value="1">1</option>
-            <option name="ans2" value="2">2</option>
-            <option name="ans3" value="3">3</option>
-            <option name="ans4" value="3">4</option>
-            <option name="ans5" value="3">5</option>
-        </select>
-
-
+            <h3 class="mt-4">Question 10</h3>
+            <p>Going out to eat is better than a home cooked meal.</p>
+            <select id="q10">
+                <option value="1">Choose one</option>               
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
     </div>
     
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#exampleModalCenter">
+    <button type="button" id="submit" class="btn btn-primary mt-4" data-toggle="modal" data-target="#exampleModalCenter">
         Submit Answers
       </button>
       
@@ -146,7 +165,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Foodie Match</h5>
+              <h4 class="modal-title" id="exampleModalCenterTitle">Foodie Match Results</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -156,12 +175,140 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
             </div>
           </div>
         </div>
       </div>
-
     </div>
 </body>
 </html>
+
+<script>
+var friends 
+
+$.get("/api/friends").then(function(data){
+    friends = data
+    console.log("Friends Data")
+    console.log(data)
+})
+$("#submit").on("click", function(event){
+    event.preventDefault()
+    $.post("/api/friends", newFriend)
+        .then(function(data) {
+          console.log(".html", data)
+        })
+
+
+    var newFriendScores = []
+    newFriendScores.push(parseInt($("#q1").val()))
+    newFriendScores.push(parseInt($("#q2").val()))
+    newFriendScores.push(parseInt($("#q3").val()))
+    newFriendScores.push(parseInt($("#q4").val()))
+    newFriendScores.push(parseInt($("#q5").val()))
+    newFriendScores.push(parseInt($("#q6").val()))
+    newFriendScores.push(parseInt($("#q7").val()))
+    newFriendScores.push(parseInt($("#q8").val()))
+    newFriendScores.push(parseInt($("#q9").val()))
+    newFriendScores.push(parseInt($("#q10").val()))
+
+    var newFriend = {
+        name: $("#name").val(),
+        photo:$("#photo").val(),
+        scores: newFriendScores
+        }
+
+    $.post("/api/friends", newFriend, function(data) {
+        console.log(newFriend)
+        })
+    
+
+    console.log("newFriend")
+    console.log(newFriend)
+
+
+    var friendsScoresArray = []
+
+    for(var i = 0; i < friends.length; i++ ){
+       friendsScoresArray.push(friends[i].scores)
+    }
+    console.log(friendsScoresArray)
+
+    var difference = []
+    
+    for (var j = 0; j < friendsScoresArray.length; j++) {
+     for (var i = 0; i < friendsScoresArray[j].length; i++) {
+
+       if (friendsScoresArray[j][i] > newFriendScores[i]){
+          difference.push(friendsScoresArray[j][i] - newFriendScores[i])
+
+       } else if (friendsScoresArray[j][i] > newFriendScores[i]){
+          difference.push(newFriendScores[i] - friendsScoresArray[j][i])
+
+       } else {
+         difference.push(0)
+       }
+     }
+   }
+   console.log("Difference") 
+   console.log(difference)
+
+
+   var differenceArray = []
+   var size = 10;
+   for (var i=0; i < difference.length; i += size) {
+      var smallerArray = difference.slice(i,i + size);
+      differenceArray.push(smallerArray)
+   }
+
+    var sumDiffs = []
+
+    for (var i = 0; i < differenceArray.length; i++) {
+      function getSum(total, num) {
+          return total + num;
+      }
+      sumDiffs.push(differenceArray[i].reduce(getSum))
+    }
+    console.log(sumDiffs);
+
+    var index = 0;
+    var value = sumDiffs[0];
+    for (var i = 1; i < sumDiffs.length; i++) {
+      if (sumDiffs[i] < value) {
+        value = sumDiffs[i];
+        index = i;
+      }
+    }
+
+    var chosenFriend = []
+    chosenFriend.push(friends[index])
+    console.log(`smallest is ${value} and the index is ${index}`)
+    console.log(chosenFriend[0])
+
+
+   $('.modal-body').html(
+     `
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 ml-auto">
+                <h1>${name}</h1>
+                <img src="${chosenFriend[0].photo}" width="200" height="300">
+                </div>
+            <div class="col-md-6 ml-auto">
+                <h1>${chosenFriend[0].name}</h1>
+                <img src="${chosenFriend[0].photo}" width="200" height="300">
+            </div>
+        </div>
+        <div class="text-center"
+            <div class="row col-md-12">
+                <img src="https://eyeondesign.aiga.org/wp-content/uploads/2017/03/Tinder-its-a-match-typography-aiga.png" height="100">
+            </div>
+        </div>
+     `
+   )
+
+ })
+
+
+
+</script>
+
