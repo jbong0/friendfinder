@@ -188,16 +188,9 @@ var friends
 
 $.get("/api/friends").then(function(data){
     friends = data
-    console.log("Friends Data")
     console.log(data)
 })
 $("#submit").on("click", function(event){
-    event.preventDefault()
-    $.post("/api/friends", newFriend)
-        .then(function(data) {
-          console.log(".html", data)
-        })
-
 
     var newFriendScores = []
     newFriendScores.push(parseInt($("#q1").val()))
@@ -211,20 +204,21 @@ $("#submit").on("click", function(event){
     newFriendScores.push(parseInt($("#q9").val()))
     newFriendScores.push(parseInt($("#q10").val()))
 
-    var newFriend = {
+    console.log("newFriendScores: " + newFriendScores)
+
+    var friendData = {
         name: $("#name").val(),
         photo:$("#photo").val(),
         scores: newFriendScores
         }
 
-    $.post("/api/friends", newFriend, function(data) {
-        console.log(newFriend)
-        })
-    
 
-    console.log("newFriend")
-    console.log(newFriend)
+    console.log(friendData)
 
+    $.post("/api/friends", friendData)
+    .then(function(data) {
+        console.log(data)
+    })
 
     var friendsScoresArray = []
 
@@ -235,22 +229,21 @@ $("#submit").on("click", function(event){
 
     var difference = []
     
-    for (var j = 0; j < friendsScoresArray.length; j++) {
-     for (var i = 0; i < friendsScoresArray[j].length; i++) {
+// for (var j = 0; j < friendsScoresArray.length; j++) {
+//     for (var i = 0; i < friendsScoresArray[j].length; i++) {
 
-       if (friendsScoresArray[j][i] > newFriendScores[i]){
-          difference.push(friendsScoresArray[j][i] - newFriendScores[i])
+//        if (friendsScoresArray[j][i] > newFriendScores[i]){
+//           difference.push(friendsScoresArray[j][i] - newFriendScores[i])
 
-       } else if (friendsScoresArray[j][i] > newFriendScores[i]){
-          difference.push(newFriendScores[i] - friendsScoresArray[j][i])
+//        } else if (friendsScoresArray[j][i] > newFriendScores[i]){
+//           difference.push(newFriendScores[i] - friendsScoresArray[j][i])
 
-       } else {
-         difference.push(0)
-       }
-     }
-   }
-   console.log("Difference") 
-   console.log(difference)
+//        } else {
+//          difference.push(0)
+//        }
+//      }
+//    }
+//    console.log(difference)
 
 
    var differenceArray = []
@@ -268,7 +261,7 @@ $("#submit").on("click", function(event){
       }
       sumDiffs.push(differenceArray[i].reduce(getSum))
     }
-    console.log(sumDiffs);
+    // console.log(sumDiffs)
 
     var index = 0;
     var value = sumDiffs[0];
@@ -287,22 +280,11 @@ $("#submit").on("click", function(event){
 
    $('.modal-body').html(
      `
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 ml-auto">
-                <h1>${name}</h1>
-                <img src="${chosenFriend[0].photo}" width="200" height="300">
-                </div>
-            <div class="col-md-6 ml-auto">
-                <h1>${chosenFriend[0].name}</h1>
-                <img src="${chosenFriend[0].photo}" width="200" height="300">
-            </div>
-        </div>
-        <div class="text-center"
-            <div class="row col-md-12">
-                <img src="https://eyeondesign.aiga.org/wp-content/uploads/2017/03/Tinder-its-a-match-typography-aiga.png" height="100">
-            </div>
-        </div>
+    <div class="container text-center">
+        <h1>${chosenFriend[0].name}</h1>
+        <img src="${chosenFriend[0].photo}" width="200" height="300">
+        <img src="https://eyeondesign.aiga.org/wp-content/uploads/2017/03/Tinder-its-a-match-typography-aiga.png" height="100">
+    </div>
      `
    )
 
