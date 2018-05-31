@@ -1,9 +1,306 @@
-$.post("/api/friends", friendData)
-.then(function(data) {
-    var friendData = {
-        name: $("name"),
-        photo: $("photo"),
-        score: newFriendScores,
-    }
-    console.log(data.routeName)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <!-- Font Awesome Glyphicons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- jQuery -->
+    <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid p-4 bg-white">
+            <h1 class="display-4"><i class="fas fa-utensils"></i> Foodie Friend Finder: Survey </h1>
+            <hr>
+        </div>
+        
+        <div id="info" class="mb-4">
+            <h3>About You:</h3>
+            <div class="input-group mb-1">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> Name : </span>
+                    </div>
+                    <input type="text" id="name" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" value="John Smith">
+            </div>
+            <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Photo URL : </span>
+                    </div>
+                    <input type="text" id="photo" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
+        </div>
+        <hr>
+        <div id="survey" class="mt-4">
+            <h3>Question 1</h3>
+            <p>Pineapples belong on pizza.</p>
+            <select id="q1">
+                <option value="1">Choose one</option>
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
+
+            <h3 class="mt-4">Question 2</h3>
+            <p>Sugar does not belong in spaghetti sauce.</p>
+            <select id="q2">
+                <option value="1">Choose one</option>
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
+
+            <h3 class="mt-4">Question 3</h3>
+            <p>Crepes should be savory.</p>
+            <select id="q3">
+                <option value="1">Choose one</option>
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
+
+            <h3 class="mt-4">Question 4</h3>
+            <p>Scrambled eggs are better than sunny side up eggs.</p>
+            <select id="q4">
+                <option value="1">Choose one</option>
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
+
+            <h3 class="mt-4">Question 5</h3>
+            <p>Fish are friends not food.</p>
+            <select id="q5">
+                <option value="1">Choose one</option>               
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
+
+            <h3 class="mt-4">Question 6</h3>
+            <p>Fried chicken is the best way to prepare chicken.</p>
+            <select id="q6">
+                <option value="1">Choose one</option>               
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
+
+            <h3 class="mt-4">Question 7</h3>
+            <p>Entrees are better with sides.</p>
+            <select id="q7">
+                <option value="1">Choose one</option>               
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
+
+            <h3 class="mt-4">Question 8</h3>
+            <p>Sour candy is better than sweet candy. </p>
+            <select id="q8">
+                <option value="1">Choose one</option>               
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
+
+            <h3 class="mt-4">Question 9</h3>
+            <p>Extra cheese please.</p>
+            <select id="q9">
+                <option value="1">Choose one</option>               
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
+
+            <h3 class="mt-4">Question 10</h3>
+            <p>Going out to eat is better than a home cooked meal.</p>
+            <select id="q10">
+                <option value="1">Choose one</option>               
+                <option value="1">Strongly Agree</option>
+                <option value="2">Agree</option>
+                <option value="3">Sometimes Agree/Disagree</option>
+                <option value="4">Disagree</option>
+                <option value="5">Strongly Disagree</option>
+            </select>
+    </div>
+    
+
+    <button type="button" id="submit" class="btn btn-primary mt-4" data-toggle="modal" data-target="#exampleModalCenter">
+        Submit Answers
+      </button>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="exampleModalCenterTitle">Foodie Match Results</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
+
+<script>
+var friends 
+
+$.get("/api/friends").then(function(data){
+    friends = data
+    console.log(data)
 })
+$("#submit").on("click", function(event){
+
+    var newFriendScores = []
+    newFriendScores.push(parseInt($("#q1").val()))
+    newFriendScores.push(parseInt($("#q2").val()))
+    newFriendScores.push(parseInt($("#q3").val()))
+    newFriendScores.push(parseInt($("#q4").val()))
+    newFriendScores.push(parseInt($("#q5").val()))
+    newFriendScores.push(parseInt($("#q6").val()))
+    newFriendScores.push(parseInt($("#q7").val()))
+    newFriendScores.push(parseInt($("#q8").val()))
+    newFriendScores.push(parseInt($("#q9").val()))
+    newFriendScores.push(parseInt($("#q10").val()))
+
+    console.log("newFriendScores: " + newFriendScores)
+
+    var friendData = {
+        name: $("#name").val(),
+        photo:$("#photo").val(),
+        scores: newFriendScores
+        }
+
+
+    console.log(friendData)
+
+    $.post("/api/friends", friendData)
+    .then(function(data) {
+        console.log(data)
+    })
+
+    var friendsScoresArray = []
+
+    for(var i = 0; i < friends.length; i++ ){
+       friendsScoresArray.push(friends[i].scores)
+    }
+    console.log(friendsScoresArray)
+
+    var difference = []
+    
+// for (var j = 0; j < friendsScoresArray.length; j++) {
+//     for (var i = 0; i < friendsScoresArray[j].length; i++) {
+
+//        if (friendsScoresArray[j][i] > newFriendScores[i]){
+//           difference.push(friendsScoresArray[j][i] - newFriendScores[i])
+
+//        } else if (friendsScoresArray[j][i] > newFriendScores[i]){
+//           difference.push(newFriendScores[i] - friendsScoresArray[j][i])
+
+//        } else {
+//          difference.push(0)
+//        }
+//      }
+//    }
+//    console.log(difference)
+
+
+   var differenceArray = []
+   var size = 10;
+   for (var i=0; i < difference.length; i += size) {
+      var smallerArray = difference.slice(i,i + size);
+      differenceArray.push(smallerArray)
+   }
+
+    var sumDiffs = []
+
+    for (var i = 0; i < differenceArray.length; i++) {
+      function getSum(total, num) {
+          return total + num;
+      }
+      sumDiffs.push(differenceArray[i].reduce(getSum))
+    }
+    // console.log(sumDiffs)
+
+    var index = 0;
+    var value = sumDiffs[0];
+    for (var i = 1; i < sumDiffs.length; i++) {
+      if (sumDiffs[i] < value) {
+        value = sumDiffs[i];
+        index = i;
+      }
+    }
+
+    var chosenFriend = []
+    chosenFriend.push(friends[index])
+    console.log(`smallest is ${value} and the index is ${index}`)
+    console.log(chosenFriend[0])
+
+
+   $('.modal-body').html(
+     `
+    <div class="container text-center">
+        <h1>${chosenFriend[0].name}</h1>
+        <img src="${chosenFriend[0].photo}" width="200" height="300">
+        <img src="https://eyeondesign.aiga.org/wp-content/uploads/2017/03/Tinder-its-a-match-typography-aiga.png" height="100">
+    </div>
+     `
+   )
+
+ })
+
+
+   $('.modal-body').html(
+     `
+    <div class="container text-center">
+        <h1>${chosenFriend[0].name}</h1>
+        <img src="${chosenFriend[0].photo}" width="200" height="300">
+        <img src="https://eyeondesign.aiga.org/wp-content/uploads/2017/03/Tinder-its-a-match-typography-aiga.png" height="100">
+    </div>
+     `
+   )
+
+
+</script>
+

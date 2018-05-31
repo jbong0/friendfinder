@@ -191,7 +191,6 @@ $.get("/api/friends").then(function(data){
     console.log(data)
 })
 $("#submit").on("click", function(event){
-
     var newFriendScores = []
     newFriendScores.push(parseInt($("#q1").val()))
     newFriendScores.push(parseInt($("#q2").val()))
@@ -204,21 +203,18 @@ $("#submit").on("click", function(event){
     newFriendScores.push(parseInt($("#q9").val()))
     newFriendScores.push(parseInt($("#q10").val()))
 
-    console.log("newFriendScores: " + newFriendScores)
-
-    var friendData = {
+    var newFriend = {
         name: $("#name").val(),
         photo:$("#photo").val(),
         scores: newFriendScores
         }
 
+    console.log(newFriend)
 
-    console.log(friendData)
-
-    $.post("/api/friends", friendData)
-    .then(function(data) {
-        console.log(data)
+    $.post("/api/friends", newFriend, function(response){
+        console.log(response)
     })
+
 
     var friendsScoresArray = []
 
@@ -229,21 +225,21 @@ $("#submit").on("click", function(event){
 
     var difference = []
     
-// for (var j = 0; j < friendsScoresArray.length; j++) {
-//     for (var i = 0; i < friendsScoresArray[j].length; i++) {
+    for (var j = 0; j < friendsScoresArray.length; j++) {
+     for (var i = 0; i < friendsScoresArray[j].length; i++) {
 
-//        if (friendsScoresArray[j][i] > newFriendScores[i]){
-//           difference.push(friendsScoresArray[j][i] - newFriendScores[i])
+       if (friendsScoresArray[j][i] > newFriendScores[i]){
+          difference.push(friendsScoresArray[j][i] - newFriendScores[i])
 
-//        } else if (friendsScoresArray[j][i] > newFriendScores[i]){
-//           difference.push(newFriendScores[i] - friendsScoresArray[j][i])
+       } else if (friendsScoresArray[j][i] > newFriendScores[i]){
+          difference.push(newFriendScores[i] - friendsScoresArray[j][i])
 
-//        } else {
-//          difference.push(0)
-//        }
-//      }
-//    }
-//    console.log(difference)
+       } else {
+         difference.push(0)
+       }
+     }
+   }
+   console.log(difference)
 
 
    var differenceArray = []
@@ -261,7 +257,7 @@ $("#submit").on("click", function(event){
       }
       sumDiffs.push(differenceArray[i].reduce(getSum))
     }
-    // console.log(sumDiffs)
+    console.log(sumDiffs);
 
     var index = 0;
     var value = sumDiffs[0];
@@ -287,6 +283,7 @@ $("#submit").on("click", function(event){
     </div>
      `
    )
+   newFriendScores = []
 
  })
 

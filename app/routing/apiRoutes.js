@@ -10,7 +10,7 @@ var app = express()
 
  router.post("/api/friends", function(req, res) {
     friendData.push(req.body)
-    console.log(friendData)
+    res.json(friendData)
   })
 
 
